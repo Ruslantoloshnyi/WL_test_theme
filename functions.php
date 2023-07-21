@@ -15,7 +15,7 @@ function create_car_post_type()
         'public' => true,
         'show_in_rest' => true,
         'label'  => 'Car',
-        'supports' => array('title', 'editor', 'thumbnail', 'author',),
+        'supports' => array('title', 'editor', 'thumbnail',),
         'taxonomies' => array('mark'),
         'has_archive' => true
 
@@ -79,3 +79,138 @@ function create_country_taxonomy()
     register_taxonomy('country', 'car', $args);
 }
 add_action('init', 'create_country_taxonomy');
+
+// add metabox color picker
+function add_car_color_metabox()
+{
+    add_meta_box(
+        'car_color',
+        'Цвет',
+        'display_car_color',
+        'car',
+        'normal',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'add_car_color_metabox');
+
+// Display color picker metabox content
+function display_car_color($post)
+{
+    $car_color = get_post_meta($post->ID, 'car_color', true);
+?>
+    <label for="car_color">Цвет авто:</label>
+    <input type="color" id="car_color" name="car_color" value="<?php echo esc_attr($car_color); ?>">
+<?php
+}
+
+// Saving the value of a color picker
+function save_car_color_meta_data($post_id)
+{
+    if (array_key_exists('car_color', $_POST)) {
+        update_post_meta($post_id, 'car_color', sanitize_hex_color($_POST['car_color']));
+    }
+}
+add_action('save_post_car', 'save_car_color_meta_data');
+
+// add metabox car fuel
+function add_car_fuel_metabox()
+{
+    add_meta_box(
+        'car_fuel',
+        'Топливо',
+        'display_car_fuel',
+        'car',
+        'normal',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'add_car_fuel_metabox');
+
+// Display car fuel metabox content
+function display_car_fuel($post)
+{
+    $car_fuel = get_post_meta($post->ID, 'car_fuel', true);
+?>
+    <label for="car_fuel">Топливо:</label>
+    <select id="car_fuel" name="car_fuel">
+        <option value="Бензин" <?php selected($car_fuel, 'Бензин'); ?>>Бензин</option>
+        <option value="Дизель" <?php selected($car_fuel, 'Дизель'); ?>>Дизель</option>
+    </select>
+<?php
+}
+
+// Saving the value of a car fuel
+function save_car_fuel_meta_data($post_id)
+{
+    if (array_key_exists('car_fuel', $_POST)) {
+        update_post_meta($post_id, 'car_fuel', sanitize_text_field($_POST['car_fuel']));
+    }
+}
+add_action('save_post_car', 'save_car_fuel_meta_data');
+
+// add metabox car power
+function add_car_power_metabox()
+{
+    add_meta_box(
+        'car_power',
+        'Мощность',
+        'display_car_power',
+        'car',
+        'normal',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'add_car_power_metabox');
+
+// Display car power metabox content
+function display_car_power($post)
+{
+    $car_power = get_post_meta($post->ID, 'car_power', true);
+?>
+    <label for="car_price">Мощность:</label>
+    <input type="number" id="car_power" name="car_power" value="<?php echo esc_attr($car_power); ?>">
+<?php
+}
+
+// Saving the value of a car power
+function save_car_power_meta_data($post_id)
+{
+    if (array_key_exists('car_power', $_POST)) {
+        update_post_meta($post_id, 'car_power', sanitize_text_field($_POST['car_power']));
+    }
+}
+add_action('save_post_car', 'save_car_power_meta_data');
+
+// add metabox car price
+function add_car_price_metabox()
+{
+    add_meta_box(
+        'car_price',
+        'Цена',
+        'display_car_price',
+        'car',
+        'normal',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'add_car_price_metabox');
+
+// Display car price metabox content
+function display_car_price($post)
+{
+    $car_price = get_post_meta($post->ID, 'car_price', true);
+?>
+    <label for="car_price">Цена:</label>
+    <input type="number" id="car_price" name="car_price" value="<?php echo esc_attr($car_price); ?>" step="any">
+<?php
+}
+
+// Saving the value of a car price
+function save_car_price_meta_data($post_id)
+{
+    if (array_key_exists('car_price', $_POST)) {
+        update_post_meta($post_id, 'car_price', sanitize_text_field($_POST['car_price']));
+    }
+}
+add_action('save_post_car', 'save_car_price_meta_data');
