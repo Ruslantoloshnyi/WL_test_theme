@@ -17,6 +17,6 @@
             <h1>WL auto</h1>
         </div>
         <div class="header__phone">
-            <p>+38068534315</p>
+            <p><?php echo get_theme_mod('header_phone', '+38068534315'); ?></p>
         </div>
     </header> <!-- Header end -->

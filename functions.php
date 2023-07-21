@@ -8,6 +8,9 @@ function wl_test_theme_scripts()
 }
 add_action('wp_enqueue_scripts', 'wl_test_theme_scripts');
 
+// activate thumbnails support
+add_theme_support('post-thumbnails');
+
 // add custom post type
 function create_car_post_type()
 {
@@ -214,3 +217,26 @@ function save_car_price_meta_data($post_id)
     }
 }
 add_action('save_post_car', 'save_car_price_meta_data');
+
+// add new settings to customizer
+function custom_theme_customizer($wp_customize)
+{
+    // add header section
+    $wp_customize->add_section('header_section', array(
+        'title' => 'Настройки хедера',
+        'priority' => 30,
+    ));
+
+    // add phone field
+    $wp_customize->add_setting('header_phone', array(
+        'default' => '+38068534315',
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control('header_phone', array(
+        'type' => 'text',
+        'section' => 'header_section',
+        'label' => 'Телефон',
+    ));
+}
+add_action('customize_register', 'custom_theme_customizer');
