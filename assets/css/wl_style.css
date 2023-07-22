@@ -384,6 +384,9 @@ header {
       margin-bottom: 10px; }
       .card .card__discription div span {
         color: #c5a800; }
+    .card .card__discription .car_color {
+      margin-top: 25px;
+      padding: 8px 15px 8px 15px; }
     .card .card__discription .card__discription__value {
       font-size: 28px;
       color: #eeebeb; }
