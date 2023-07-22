@@ -66,7 +66,7 @@ $query = new WP_Query($args);
                         </div>
                     </div>
 
-                    <a href="#">Просмотр</a>
+                    <a href="<?php echo get_permalink(); ?>">Просмотр</a>
                 </div>
 
 

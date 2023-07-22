@@ -453,6 +453,9 @@ header {
         margin-bottom: 10px; }
         .single-card .single-card-discription .single-card-discription__meta div span {
           color: #c5a800; }
+      .single-card .single-card-discription .single-card-discription__meta .car_color {
+        margin-top: 25px;
+        padding: 8px 15px 8px 15px; }
       .single-card .single-card-discription .single-card-discription__meta .single-card-discription__value {
         font-size: 28px;
         color: #eeebeb; }
