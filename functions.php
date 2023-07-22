@@ -240,3 +240,29 @@ function custom_theme_customizer($wp_customize)
     ));
 }
 add_action('customize_register', 'custom_theme_customizer');
+
+// add car list shortcode
+function car_list_shortcode()
+{
+    $args = array(
+        'post_type' => 'car',
+        'posts_per_page' => 10,
+        'order' => 'DESC',
+        'orderby' => 'date',
+    );
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        $output = '<ul>';
+        while ($query->have_posts()) {
+            $query->the_post();
+            $output .= '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+        }
+        $output .= '</ul>';
+        wp_reset_postdata();
+    }
+
+    return $output;
+}
+add_shortcode('car_list', 'car_list_shortcode');
