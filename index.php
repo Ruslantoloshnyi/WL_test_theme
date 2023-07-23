@@ -18,10 +18,27 @@ $query = new WP_Query($args);
             while ($query->have_posts()) :
                 $query->the_post();
 
-                $car_color = sanitize_hex_color(get_post_meta(get_the_ID(), 'car_color', true));
-                $car_fuel = get_post_meta(get_the_ID(), 'car_fuel', true);
-                $car_power = get_post_meta(get_the_ID(), 'car_power', true);
-                $car_price = get_post_meta(get_the_ID(), 'car_price', true);
+                $car_color = '';
+                $car_fuel = '';
+                $car_power = '';
+                $car_price = '';
+
+                // Check if metafields exist and getting their values
+                if (get_post_meta(get_the_ID(), 'car_color', true)) {
+                    $car_color = sanitize_hex_color(get_post_meta(get_the_ID(), 'car_color', true));
+                }
+
+                if (get_post_meta(get_the_ID(), 'car_fuel', true)) {
+                    $car_fuel = get_post_meta(get_the_ID(), 'car_fuel', true);
+                }
+
+                if (get_post_meta(get_the_ID(), 'car_power', true)) {
+                    $car_power = get_post_meta(get_the_ID(), 'car_power', true);
+                }
+
+                if (get_post_meta(get_the_ID(), 'car_price', true)) {
+                    $car_price = get_post_meta(get_the_ID(), 'car_price', true);
+                }
 
                 $country_terms = get_the_terms(get_the_ID(), 'country');
                 $mark_terms = get_the_terms(get_the_ID(), 'mark');
