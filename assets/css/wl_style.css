@@ -325,24 +325,32 @@ a:visited {
   margin: 0 auto; }
 
 body {
-  background-color: #383535; }
+  background-color: #3e3e42; }
 
 /**
    * Header style
    */
 header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  background-color: black; }
+  background-color: #1e1e1e;
+  height: 120px; }
   header .header__logo {
-    color: yellow;
-    font-size: 28px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-style: italic; }
+    color: #ffff;
+    font-size: 22px;
+    font-family: sans-serif;
+    font-style: italic;
+    line-height: normal; }
+    @media (max-width: 480px) {
+      header .header__logo {
+        font-size: 16px; } }
   header .header__phone {
     color: #ffff;
     font-size: 24px; }
+    @media (max-width: 480px) {
+      header .header__phone {
+        font-size: 18px; } }
 
 /**
    * Content style
@@ -352,11 +360,22 @@ header {
   flex-direction: column;
   align-items: center;
   margin-top: 60px;
-  margin-bottom: 20px; }
-  .card .card__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; }
+  margin-bottom: 20px;
+  border: solid 1px #ffff;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease; }
+  .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); }
+  .card .card__image {
+    width: 100%; }
+    .card .card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 30px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px; }
   .card .card__heading {
     display: flex;
     flex-direction: column;
@@ -368,7 +387,7 @@ header {
   .card .card__discription {
     display: flex;
     justify-content: space-between;
-    width: 70%;
+    width: 55%;
     border-bottom: 1px solid #eeebeb;
     margin-bottom: 20px;
     text-align: center; }
@@ -383,7 +402,7 @@ header {
       color: #777575;
       margin-bottom: 10px; }
       .card .card__discription div span {
-        color: #c5a800; }
+        color: #ffffff; }
     .card .card__discription .car_color {
       margin-top: 25px;
       padding: 8px 15px 8px 15px; }
@@ -392,15 +411,14 @@ header {
       color: #eeebeb; }
   .card a {
     padding: 8px 25px 8px 25px;
-    border-radius: 10px 10px 10px 10px;
-    color: #1f1e1e;
-    background-color: #c5a800;
+    border-radius: 30px;
+    color: #d4d0d0;
+    background-color: #007acc;
     font-size: 18px;
-    font-weight: 800; }
+    font-weight: 800;
+    margin-bottom: 20px; }
     .card a:hover {
-      -webkit-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-      transform: scale(1.2); }
+      background-color: #1390e4; }
 
 /**
    * Single style
@@ -410,11 +428,22 @@ header {
   flex-direction: column;
   align-items: center;
   margin-top: 60px;
-  margin-bottom: 20px; }
-  .single-card .single-card__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; }
+  margin-bottom: 20px;
+  border: solid 1px #ffff;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease; }
+  .single-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); }
+  .single-card .single-card__image {
+    width: 100%; }
+    .single-card .single-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 30px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px; }
   .single-card .single-card__heading {
     display: flex;
     flex-direction: column;
@@ -426,7 +455,7 @@ header {
   .single-card .single-card-discription {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 55%;
     margin-bottom: 20px; }
     @media (max-width: 480px) {
       .single-card .single-card-discription {
@@ -435,6 +464,10 @@ header {
       font-size: 16px;
       color: #eeebeb;
       margin-bottom: 20px; }
+      @media (max-width: 480px) {
+        .single-card .single-card-discription .single-card-discription__content {
+          padding-left: 15px;
+          padding-right: 15px; } }
     .single-card .single-card-discription .single-card-discription__meta {
       border-bottom: 1px solid #eeebeb;
       display: flex;
@@ -468,16 +501,12 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px; }
+  margin-top: 20px;
+  height: 120px; }
   footer .footer__logo {
-    margin-top: 20px;
-    color: yellow;
-    font-size: 28px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-style: italic; }
-  footer .footer__phone {
+    margin-top: 80px;
     color: #ffff;
-    font-size: 24px;
-    margin-bottom: 20px; }
+    font-size: 14px;
+    font-family: sans-serif; }
 
 /*# sourceMappingURL=wl_style.css.map */

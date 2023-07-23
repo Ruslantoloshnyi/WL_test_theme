@@ -447,27 +447,38 @@ a:visited {
 }
 
 body {
-    background-color: rgb(56, 53, 53);;
+    background-color: #3e3e42;
 }
+
 
 /**
    * Header style
    */
 header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    background-color: rgb(0, 0, 0);
+    background-color: 	#1e1e1e;
+    height: 120px;
     .header__logo {
-        color: yellow;
-        font-size: 28px;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: #ffff;
+        font-size: 22px;
+        font-family: sans-serif;
         font-style: italic;
+        line-height: normal;
+        @include _480() {
+            font-size: 16px;
+        }
+        
+        
     }
 
     .header__phone {
         color: #ffff;
         font-size: 24px;
+        @include _480() {
+            font-size: 18px;
+        }
     }
 }
 
@@ -480,13 +491,24 @@ header {
     align-items: center;    
     margin-top: 60px;
     margin-bottom: 20px;
-   
+    border: solid 1px #ffff;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: box-shadow 0.3s ease; 
+
+    &:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
 
     .card__image {
+        width: 100%;
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 30px;
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px;
         }        
     }
 
@@ -504,7 +526,7 @@ header {
     .card__discription {
         display: flex;
         justify-content: space-between;        
-        width: 70%;
+        width: 55%;
         border-bottom: 1px solid #eeebeb;
         margin-bottom: 20px;
         text-align: center;
@@ -522,7 +544,7 @@ header {
             margin-bottom: 10px;
 
             span {
-                color: #c5a800;
+                color: #ffffff;
             }
         }
 
@@ -540,16 +562,15 @@ header {
 
     a {
         padding: 8px 25px 8px 25px;
-        border-radius: 10px 10px 10px 10px;
-        color: #1f1e1e;
-        background-color: #c5a800;
+        border-radius: 30px ;
+        color: #d4d0d0;
+        background-color: #007acc;
         font-size: 18px;
         font-weight: 800;
+        margin-bottom: 20px;
 
         &:hover {
-            -webkit-transform: scale(1.2);
-            -ms-transform: scale(1.2);
-            transform: scale(1.2);
+            background-color: #1390e4;
         }
     }
 }
@@ -563,12 +584,24 @@ header {
     align-items: center;    
     margin-top: 60px;
     margin-bottom: 20px;
+    border: solid 1px #ffff;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: box-shadow 0.3s ease; 
+    
+    &:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
 
     .single-card__image {
+        width: 100%;
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 30px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
         }
     }
 
@@ -586,7 +619,7 @@ header {
     .single-card-discription {
         display: flex;
        flex-direction: column;        
-        width: 70%;        
+        width: 55%;        
         margin-bottom: 20px;
         
         @include _480() {
@@ -597,6 +630,10 @@ header {
             font-size: 16px;
             color: #eeebeb;
             margin-bottom: 20px;
+            @include _480() {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
             
         }
 
@@ -647,20 +684,15 @@ header {
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    height: 120px;
 
     .footer__logo {
-        margin-top: 20px;
-        color: yellow;
-        font-size: 28px;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        font-style: italic;
-    }
-
-    .footer__phone {
-        color: #ffff;
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
+        margin-top: 80px;
+        color :#ffff;
+        font-size: 14px;
+        font-family: sans-serif;
+        
+    }    
    }
 
 

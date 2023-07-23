@@ -254,10 +254,10 @@ function car_list_shortcode()
     $query = new WP_Query($args);
 
     if ($query->have_posts()) {
-        $output = '<ul>';
+        $output = '<ul style="list-style-type: none;">';
         while ($query->have_posts()) {
             $query->the_post();
-            $output .= '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+            $output .= '<li style="font-size: 40px;"><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
         }
         $output .= '</ul>';
         wp_reset_postdata();

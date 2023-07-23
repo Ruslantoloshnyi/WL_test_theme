@@ -48,7 +48,7 @@ $query = new WP_Query($args);
                     <div class="card__discription">
                         <div>
                             <div>Цена</div>
-                            <div class="card__discription__value"><span><?php echo $car_price; ?></span></div>
+                            <div class="card__discription__value"><span><?php echo $car_price; ?> $</span></div>
                         </div>
                         <div>
                             <div>Цвет</div>

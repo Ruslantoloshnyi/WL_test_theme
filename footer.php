@@ -1,9 +1,7 @@
 <footer>
     <div class="footer__logo">
-        <h1>WL auto</h1>
+        <p>&copy; Copyright 2023 Ruslan Toloshnyi</p>
     </div>
-    <div class="footer__phone">
-        <p>+38068534315</p>
-    </div>
+
 </footer> <!-- footer end -->
 </body>
